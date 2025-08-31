@@ -77,18 +77,18 @@ html {
 
 ::-moz-selection {
 	color: white;
-	background: orange;
+	background: rgb(79, 4, 171);
 }
 ::selection {
 	color: white;
-	background: orange;
+	background: purple;
 }
 .dark ::-moz-selection {
-	color: orange;
+	color: purple;
 	background: white;
 }
 .dark ::selection {
-	color: orange;
+	color: purple;
 	background: white;
 }
 

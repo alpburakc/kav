@@ -1,0 +1,111 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Title from "@components/global/Title.astro";
+import { getLangFromUrl, useTranslations, useTranslatedPath } from "@i18n/utils";
+import type { AstroSeoProps } from "@astrolib/seo";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+// (Optional) If you have a SITE_URL constant, use that instead of hard-coding.
+const CANONICAL_BASE = "https://kav.org.tr"; // ← change to your production domain
+const canonical = `${CANONICAL_BASE}/${lang}/board/`;
+
+const seo: AstroSeoProps = {
+  title: t("board.seo.title"),
+  description: t("board.seo.description"),
+  canonical,
+  openGraph: {
+    title: t("board.seo.title"),
+    description: t("board.seo.description"),
+    url: canonical,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: t("board.seo.title"),
+    description: t("board.seo.description"),
+  },
+  // Optional: if you manage hreflang alternates here
+  // alternates: {
+  //   languages: {
+  //     "tr": `${CANONICAL_BASE}/tr/board/`,
+  //     "en": `${CANONICAL_BASE}/en/board/`,
+  //   },
+  // },
+};
+---
+
+<BaseLayout seo={seo}>
+  <section>
+    <div class="mx-auto max-w-7xl px-8 py-12 md:px-12 lg:px-32 lg:py-32">
+      <div>
+        <Title
+          title={t("board.title")}
+          subtitle={t("board.subtitle")}
+          class="pb-10 pt-20 uppercase"
+        />
+      </div>
+
+      <!-- Optional breadcrumb using your i18n-aware links -->
+      <nav aria-label="Breadcrumb" class="mb-10 text-sm opacity-80">
+        <a href={translatePath("/")} class="underline hover:no-underline">{t("nav.home")}</a>
+        <span class="mx-2">/</span>
+        <span>{t("board.breadcrumb")}</span>
+      </nav>
+
+      <!-- Executive Board -->
+      <div class="prose-styles mt-12 lg:mt-16">
+        <h2 class="mb-6">{t("board.exec.title")}</h2>
+      </div>
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Member 1 -->
+        <article class="rounded-2xl border p-6 shadow-sm">
+          <img src={t("board.exec.m1.photo")} alt={t("board.exec.m1.name")} class="mb-4 aspect-[4/3] w-full rounded-xl object-cover" />
+          <h3 class="text-lg font-semibold">{t("board.exec.m1.name")}</h3>
+          <p class="text-sm opacity-80">{t("board.exec.m1.role")}</p>
+          <p class="mt-3 text-sm leading-relaxed">{t("board.exec.m1.bio")}</p>
+        </article>
+
+        <!-- Member 2 -->
+        <article class="rounded-2xl border p-6 shadow-sm">
+          <img src={t("board.exec.m2.photo")} alt={t("board.exec.m2.name")} class="mb-4 aspect-[4/3] w-full rounded-xl object-cover" />
+          <h3 class="text-lg font-semibold">{t("board.exec.m2.name")}</h3>
+          <p class="text-sm opacity-80">{t("board.exec.m2.role")}</p>
+          <p class="mt-3 text-sm leading-relaxed">{t("board.exec.m2.bio")}</p>
+        </article>
+
+        <!-- Member 3 -->
+        <article class="rounded-2xl border p-6 shadow-sm">
+          <img src={t("board.exec.m3.photo")} alt={t("board.exec.m3.name")} class="mb-4 aspect-[4/3] w-full rounded-xl object-cover" />
+          <h3 class="text-lg font-semibold">{t("board.exec.m3.name")}</h3>
+          <p class="text-sm opacity-80">{t("board.exec.m3.role")}</p>
+          <p class="mt-3 text-sm leading-relaxed">{t("board.exec.m3.bio")}</p>
+        </article>
+      </div>
+
+      <!-- Supervisory Board -->
+      <div class="prose-styles mt-16 lg:mt-20">
+        <h2 class="mb-6">{t("board.audit.title")}</h2>
+      </div>
+      <div class="grid gap-8 sm:grid-cols-2">
+        <!-- Auditor 1 -->
+        <article class="rounded-2xl border p-6 shadow-sm">
+          <img src={t("board.audit.m1.photo")} alt={t("board.audit.m1.name")} class="mb-4 aspect-[4/3] w-full rounded-xl object-cover" />
+          <h3 class="text-lg font-semibold">{t("board.audit.m1.name")}</h3>
+          <p class="text-sm opacity-80">{t("board.audit.m1.role")}</p>
+          <p class="mt-3 text-sm leading-relaxed">{t("board.audit.m1.bio")}</p>
+        </article>
+
+        <!-- Auditor 2 -->
+        <article class="rounded-2xl border p-6 shadow-sm">
+          <img src={t("board.audit.m2.photo")} alt={t("board.audit.m2.name")} class="mb-4 aspect-[4/3] w-full rounded-xl object-cover" />
+          <h3 class="text-lg font-semibold">{t("board.audit.m2.name")}</h3>
+          <p class="text-sm opacity-80">{t("board.audit.m2.role")}</p>
+          <p class="mt-3 text-sm leading-relaxed">{t("board.audit.m2.bio")}</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

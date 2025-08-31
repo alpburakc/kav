@@ -13,10 +13,10 @@ export default defineConfig({
 			},
 		},
 	},
-	site: "https://mintaka.co",
+	site: "https://kardiyovaskuler.org",
 	i18n: {
-		defaultLocale: "en",
-		locales: ["en", "it"],
+		defaultLocale: "tr",
+		locales: ["en", "tr"],
 	},
 	markdown: {
 		drafts: true,
