@@ -4,12 +4,18 @@ import Title from "@components/global/Title.astro";
 import { getLangFromUrl, useTranslations, useTranslatedPath } from "@i18n/utils";
 import type { AstroSeoProps } from "@astrolib/seo";
 
+// Images (Astro will optimize/bundle)
+import board1 from "@/assets/images/board/board1.png";
+import board2 from "@/assets/images/board/board2.png";
+import board3 from "@/assets/images/board/board3.png";
+import auditor1 from "@/assets/images/board/auditor1.png";
+import auditor2 from "@/assets/images/board/auditor2.png";
+
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
-// (Optional) If you have a SITE_URL constant, use that instead of hard-coding.
-const CANONICAL_BASE = "https://kav.org.tr"; // ← change to your production domain
+const CANONICAL_BASE = "https://kav.org.tr"; // ← update if needed
 const canonical = `${CANONICAL_BASE}/${lang}/board/`;
 
 const seo: AstroSeoProps = {
@@ -27,13 +33,6 @@ const seo: AstroSeoProps = {
     title: t("board.seo.title"),
     description: t("board.seo.description"),
   },
-  // Optional: if you manage hreflang alternates here
-  // alternates: {
-  //   languages: {
-  //     "tr": `${CANONICAL_BASE}/tr/board/`,
-  //     "en": `${CANONICAL_BASE}/en/board/`,
-  //   },
-  // },
 };
 ---
 
@@ -48,7 +47,7 @@ const seo: AstroSeoProps = {
         />
       </div>
 
-      <!-- Optional breadcrumb using your i18n-aware links -->
+      <!-- Breadcrumb -->
       <nav aria-label="Breadcrumb" class="mb-10 text-sm opacity-80">
         <a href={translatePath("/")} class="underline hover:no-underline">{t("nav.home")}</a>
         <span class="mx-2">/</span>
@@ -59,10 +58,19 @@ const seo: AstroSeoProps = {
       <div class="prose-styles mt-12 lg:mt-16">
         <h2 class="mb-6">{t("board.exec.title")}</h2>
       </div>
+
       <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         <!-- Member 1 -->
         <article class="rounded-2xl border p-6 shadow-sm">
-          <img src={t("board.exec.m1.photo")} alt={t("board.exec.m1.name")} class="mb-4 aspect-[4/3] w-full rounded-xl object-cover" />
+          <div class="mb-4 aspect-[4/3] w-full overflow-hidden rounded-xl bg-white/60 p-2">
+            <img
+              src={board1.src}
+              alt={t("board.exec.m1.name")}
+              class="h-full w-full object-contain object-center"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
           <h3 class="text-lg font-semibold">{t("board.exec.m1.name")}</h3>
           <p class="text-sm opacity-80">{t("board.exec.m1.role")}</p>
           <p class="mt-3 text-sm leading-relaxed">{t("board.exec.m1.bio")}</p>
@@ -70,7 +78,15 @@ const seo: AstroSeoProps = {
 
         <!-- Member 2 -->
         <article class="rounded-2xl border p-6 shadow-sm">
-          <img src={t("board.exec.m2.photo")} alt={t("board.exec.m2.name")} class="mb-4 aspect-[4/3] w-full rounded-xl object-cover" />
+          <div class="mb-4 aspect-[4/3] w-full overflow-hidden rounded-xl bg-white/60 p-2">
+            <img
+              src={board2.src}
+              alt={t("board.exec.m2.name")}
+              class="h-full w-full object-contain object-center"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
           <h3 class="text-lg font-semibold">{t("board.exec.m2.name")}</h3>
           <p class="text-sm opacity-80">{t("board.exec.m2.role")}</p>
           <p class="mt-3 text-sm leading-relaxed">{t("board.exec.m2.bio")}</p>
@@ -78,7 +94,15 @@ const seo: AstroSeoProps = {
 
         <!-- Member 3 -->
         <article class="rounded-2xl border p-6 shadow-sm">
-          <img src={t("board.exec.m3.photo")} alt={t("board.exec.m3.name")} class="mb-4 aspect-[4/3] w-full rounded-xl object-cover" />
+          <div class="mb-4 aspect-[4/3] w-full overflow-hidden rounded-xl bg-white/60 p-2">
+            <img
+              src={board3.src}
+              alt={t("board.exec.m3.name")}
+              class="h-full w-full object-contain object-center"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
           <h3 class="text-lg font-semibold">{t("board.exec.m3.name")}</h3>
           <p class="text-sm opacity-80">{t("board.exec.m3.role")}</p>
           <p class="mt-3 text-sm leading-relaxed">{t("board.exec.m3.bio")}</p>
@@ -89,10 +113,19 @@ const seo: AstroSeoProps = {
       <div class="prose-styles mt-16 lg:mt-20">
         <h2 class="mb-6">{t("board.audit.title")}</h2>
       </div>
+
       <div class="grid gap-8 sm:grid-cols-2">
         <!-- Auditor 1 -->
         <article class="rounded-2xl border p-6 shadow-sm">
-          <img src={t("board.audit.m1.photo")} alt={t("board.audit.m1.name")} class="mb-4 aspect-[4/3] w-full rounded-xl object-cover" />
+          <div class="mb-4 aspect-[4/3] w-full overflow-hidden rounded-xl bg-white/60 p-2">
+            <img
+              src={auditor1.src}
+              alt={t("board.audit.m1.name")}
+              class="h-full w-full object-contain object-center"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
           <h3 class="text-lg font-semibold">{t("board.audit.m1.name")}</h3>
           <p class="text-sm opacity-80">{t("board.audit.m1.role")}</p>
           <p class="mt-3 text-sm leading-relaxed">{t("board.audit.m1.bio")}</p>
@@ -100,7 +133,15 @@ const seo: AstroSeoProps = {
 
         <!-- Auditor 2 -->
         <article class="rounded-2xl border p-6 shadow-sm">
-          <img src={t("board.audit.m2.photo")} alt={t("board.audit.m2.name")} class="mb-4 aspect-[4/3] w-full rounded-xl object-cover" />
+          <div class="mb-4 aspect-[4/3] w-full overflow-hidden rounded-xl bg-white/60 p-2">
+            <img
+              src={auditor2.src}
+              alt={t("board.audit.m2.name")}
+              class="h-full w-full object-contain object-center"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
           <h3 class="text-lg font-semibold">{t("board.audit.m2.name")}</h3>
           <p class="text-sm opacity-80">{t("board.audit.m2.role")}</p>
           <p class="mt-3 text-sm leading-relaxed">{t("board.audit.m2.bio")}</p>

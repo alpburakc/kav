@@ -103,23 +103,23 @@ export const ui = {
     "board.exec.m1.bio": "Girişimsel kardiyoloji alanında deneyimli; KAV’ın bilimsel programları, ulusal-uluslararası iş birlikleri ve yenilikçi projelerinden sorumludur.",
 
     "board.exec.m2.photo": "/images/board/member-2.jpg",
-    "board.exec.m2.name": "Üye Adı 2",
-    "board.exec.m2.role": "Yönetim Kurulu Üyesi",
+    "board.exec.m2.name": "Doç. Dr. Hasan Ali Barman",
+    "board.exec.m2.role": "Yönetim Kurulu Başkan Yardımcısı",
     "board.exec.m2.bio": "Araştırma fonları, proje değerlendirme süreçleri ve açık erişim politika geliştirme çalışmalarına katkı sağlar.",
 
     "board.exec.m3.photo": "/images/board/member-3.jpg",
-    "board.exec.m3.name": "Üye Adı 3",
+    "board.exec.m3.name": "Doç. Dr. Burak Acar",
     "board.exec.m3.role": "Yönetim Kurulu Üyesi",
     "board.exec.m3.bio": "Klinik araştırmalar, eğitim etkinlikleri ve etik uyum süreçlerinin yürütülmesinde görev alır.",
 
     "board.audit.title": "Denetleme Kurulu",
     "board.audit.m1.photo": "/images/board/audit-1.jpg",
-    "board.audit.m1.name": "Denetçi Adı 1",
+    "board.audit.m1.name": "Prof. Dr. Enis Oğuz",
     "board.audit.m1.role": "Denetleme Kurulu Üyesi",
     "board.audit.m1.bio": "Mali işlemler ve şeffaflık raporlamasının mevzuata uygunluğunu denetler.",
 
     "board.audit.m2.photo": "/images/board/audit-2.jpg",
-    "board.audit.m2.name": "Denetçi Adı 2",
+    "board.audit.m2.name": "Handan Bakbak",
     "board.audit.m2.role": "Denetleme Kurulu Üyesi",
     "board.audit.m2.bio": "Bağış ve sponsorluk sözleşmelerinin takibi ile risk yönetimine katkı sağlar.",
 	"board.title": "Kurul",
